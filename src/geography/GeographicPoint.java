@@ -11,12 +11,8 @@ public class GeographicPoint extends Double {
 		super(latitude, longitude);
 	}
 	
-	/**
-	 * Calculates the geographic distance in km between this point and 
-	 * the other point. 
-	 * @param other
-	 * @return The distance between this lat, lon point and the other point
-	 */
+	// Calculates the geographic distance in km between this point and the other point
+	 
 	public double distance(GeographicPoint other)
 	{
 		return getDist(this.getX(), this.getY(),
