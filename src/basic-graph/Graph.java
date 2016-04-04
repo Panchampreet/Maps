@@ -11,75 +11,40 @@ import java.util.TreeMap;
 
 import util.GraphLoader;
 
-/** An abstract class that implements a directed graph. 
- * The graph may have self-loops, parallel edges. 
- * Vertices are labeled by integers 0 .. n-1
- * and may also have String labels.
- * The edges of the graph are not labeled.
- * Representation of edges is left abstract.
- * 
- * @author UCSD MOOC development team and YOU
- * 
- */
+// An abstract class that implements a directed graph.
 
 public abstract class Graph {
 
 	private int numVertices;
 	private int numEdges;
-	//optional association of String labels to vertices 
+	//optional labels to vertices 
 	private Map<Integer,String> vertexLabels;
 	
-	/**
-	 * Create a new empty Graph
-	 */
 	public Graph() {
 		numVertices = 0;
 		numEdges = 0;
 		vertexLabels = null;
 	}
 
-	
-	/**
-	 * Report size of vertex set
-	 * @return The number of vertices in the graph.
-	 */
 	public int getNumVertices() {
 		return numVertices;
 	}
 	
 	
-	/**
-	 * Report size of edge set
-	 * @return The number of edges in the graph.
-	 */	
 	public int getNumEdges() {
 		return numEdges;
 	}
 	
-	/**
-	 * Add new vertex to the graph.  This vertex will
-	 * have as its index the next available integer.
-	 * Precondition: contiguous integers are used to 
-	 * index vertices.
-	 * @return index of newly added vertex
-	 */
+
 	public int addVertex() {
 		implementAddVertex();
 		numVertices ++;
 		return (numVertices-1);
 	}
 	
-	/**
-	 * Abstract method implementing adding a new
-	 * vertex to the representation of the graph.
-	 */
+
 	public abstract void implementAddVertex();
 	
-	/**
-	 * Add new edge to the graph between given vertices,
-	 * @param u Index of the start point of the edge to be added. 
-	 * @param v Index of the end point of the edge to be added. 
-	 */
 	public void addEdge(int v , int w) {
 		numEdges ++;
 		if (v < numVertices && w < numVertices) {
@@ -90,56 +55,26 @@ public abstract class Graph {
 		}
 	}
 	
-	/**
-	 * Abstract method implementing adding a new
-	 * edge to the representation of the graph.
-	 */
+
 	public abstract void implementAddEdge(int v, int w);
 	
-	/**
-	 * Get all (out-)neighbors of a given vertex.
-	 * @param v Index of vertex in question.
-	 * @return List of indices of all vertices that are adjacent to v
-	 * 	via outgoing edges from v. 
-	 */
+	// Get all out-neighbors of a given vertex.
 	public abstract List<Integer> getNeighbors(int v); 
 	
-	/**
-	 * Get all in-neighbors of a given vertex.
-	 * @param v Index of vertex in question.
-	 * @return List of indices of all vertices that are adjacent to v
-	 * 	via incoming edges to v. 
-	 */
+	// Get all in-neighbors of a given vertex
 	public abstract List<Integer> getInNeighbors(int v);
 	
-	
-
-	/** 
-	 * The degree sequence of a graph is a sorted (organized in numerical order 
-	 * from largest to smallest, possibly with repetitions) list of the degrees 
-	 * of the vertices in the graph.
-	 * 
-	 * @return The degree sequence of this graph.
-	 */
+	 // return The degree sequence of this graph.
 	public List<Integer> degreeSequence() {
-		// XXX: Implement in part 1 of week 1
+		// To do
 		int outDegreeCount=0;
 		int inDegreeCount=0;
 		return null;
 	}
 	
-	/**
-	 * Get all the vertices that are 2 away from the vertex in question.
-	 * @param v The starting vertex
-	 * @return A list of the vertices that can be reached in exactly two hops (by 
-	 * following two edges) from vertex v.
-	 * XXX: Implement in part 2 of week 1 for each subclass of Graph
-	 */
+	// Get all the vertices 2 hops away
 	public abstract List<Integer> getDistance2(int v); 
 
-	/** Return a String representation of the graph
-	 * @return A string representation of the graph
-	 */
 	public String toString() {
 		String s = "\nGraph with " + numVertices + " vertices and " + numEdges + " edges.\n";
 		s += "Degree sequence: " + degreeSequence() + ".\n";
@@ -147,10 +82,7 @@ public abstract class Graph {
 		return s;
 	}
 
-	/**
-	 * Generate string representation of adjacency list
-	 * @return the String
-	 */
+	
 	public abstract String adjacencyString();
 
 	
