@@ -86,43 +86,25 @@ public abstract class Graph {
 	public abstract String adjacencyString();
 
 	
-	// The next methods implement labeled vertices.
-	// Basic graphs may or may not have labeled vertices.
+	// Implementation of labeled vertices
 	
-	/**
-	 * Create a new map of vertex indices to string labels
-	 * (Optional: only if using labeled vertices.)
-	 */
 	public void initializeLabels() {
 		vertexLabels = new HashMap<Integer,String>();
-	}	
-	/**
-	 * Test whether some vertex in the graph is labeled 
-	 * with a given index.
-	 * @param The index being checked
-	 * @return True if there's a vertex in the graph with this index; false otherwise.
-	 */
+	}
+	
+	// Test whether some vertex in the graph is labelled  with a given index
 	public boolean hasVertex(int v)
 	{
 		return v < getNumVertices();
 	}
 	
-	/**
-	 * Test whether some vertex in the graph is labeled 
-	 * with a given String label
-	 * @param The String label being checked
-	 * @return True if there's a vertex in the graph with this label; false otherwise.
-	 */
+	// Test whether some vertex in the graph is labelled  with a given String label
 	public boolean hasVertex(String s)
 	{
 		return vertexLabels.containsValue(s);
 	}
 	
-	/**
-	 * Add label to an unlabeled vertex in the graph.
-	 * @param The index of the vertex to be labeled.
-	 * @param The label to be assigned to this vertex.
-	 */
+	// Add label to an unlabeled vertex in the graph
 	public void addLabel(int v, String s) {
 		if (v < getNumVertices() && !vertexLabels.containsKey(v)) 
 		{
@@ -133,11 +115,7 @@ public abstract class Graph {
 		}
 	}
 	
-	/**
-	 * Report label of vertex with given index
-	 * @param The integer index of the vertex
-	 * @return The String label of this vertex 
-	 */
+	// Report label of vertex with given index
 	public String getLabel(int v) {
 		if (vertexLabels.containsKey(v)) {
 			return vertexLabels.get(v);
@@ -145,12 +123,7 @@ public abstract class Graph {
 		else return null;
 	}
 
-	/**
-	 * Report index of vertex with given label.
-	 * (Assume distinct labels for vertices.)
-	 * @param The String label of the vertex
-	 * @return The integer index of this vertex 
-	 */
+	// Report index of vertex with given label.
 	public int getIndex(String s) {
 		for (Map.Entry<Integer,String> entry : vertexLabels.entrySet()) {
 			if (entry.getValue().equals(s))
@@ -165,10 +138,6 @@ public abstract class Graph {
 	public static void main (String[] args) {
 		GraphLoader.createIntersectionsFile("data/maps/myucsd.map", "data/intersections/myucsd.intersections");
 		
-
-		// For testing of Part 1 functionality
-		// Add your tests here to make sure your degreeSequence method is returning
-		// the correct list, after examining the graphs.
 		System.out.println("Loading graphs based on real data...");
 		System.out.println("Goal: use degree sequence to analyse graphs.");
 		
@@ -183,21 +152,15 @@ public abstract class Graph {
 
 		System.out.println("\n****");
 		
-		// You can test with real road data here.  Use the data files in data/maps
-		
 		System.out.println("Flight data:");
 		GraphAdjList airportGraph = new GraphAdjList();
 		GraphLoader.loadRoutes("data/airports/routesUA.dat", airportGraph);
 		System.out.println(airportGraph);
-		System.out.println("Observe most degrees are small (1-30), eight are over 100.");
+		System.out.println("Most degrees are small (1-30), eight are over 100.");
 		System.out.println("****");
-		
-		//For testing Part 2 functionality
-		// Test your distance2 code here.
+
 		System.out.println("Testing distance-two methods on sample graphs...");
 		System.out.println("Goal: implement method using two approaches.");
-
-
 		
 	}
 }
