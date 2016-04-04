@@ -137,7 +137,8 @@ public abstract class Graph {
 	
 	public static void main (String[] args) {
 		GraphLoader.createIntersectionsFile("data/maps/myucsd.map", "data/intersections/myucsd.intersections");
-		
+
+                // To do
 		System.out.println("Loading graphs based on real data...");
 		System.out.println("Goal: use degree sequence to analyse graphs.");
 		
@@ -147,7 +148,7 @@ public abstract class Graph {
 		GraphLoader.loadRoadMap("data/testdata/simpletest.map", graphFromFile);
 		System.out.println(graphFromFile);
 		
-		System.out.println("Observe all degrees are <= 12.");
+		System.out.println("All degrees are <= 12.");
 		System.out.println("****");
 
 		System.out.println("\n****");
@@ -159,6 +160,7 @@ public abstract class Graph {
 		System.out.println("Most degrees are small (1-30), eight are over 100.");
 		System.out.println("****");
 
+		// To do
 		System.out.println("Testing distance-two methods on sample graphs...");
 		System.out.println("Goal: implement method using two approaches.");
 		
