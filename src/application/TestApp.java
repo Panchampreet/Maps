@@ -1,8 +1,5 @@
-/** Basic Class to test UI components
- * 
- * @author UCSD MOOC development team
- *
- */
+// Basic Class to test UI components
+
 package application;
 
 import gmapsfx.GoogleMapView;
@@ -17,8 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class TestApp extends Application
-					 implements MapComponentInitializedListener {
+public class TestApp extends Application implements MapComponentInitializedListener {
 	protected GoogleMapView mapComponent;
 	protected GoogleMap map;
 
