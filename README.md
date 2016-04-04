@@ -1,1 +1,1 @@
-Attempt at a google maps-wannabe app
+Attempts at a Google Maps-Wannabe App
